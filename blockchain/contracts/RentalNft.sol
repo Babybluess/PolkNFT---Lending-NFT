@@ -152,29 +152,13 @@ contract rentalNft is ERC1155, AccessControl, ERC1155Supply, IError {
         emit ReturnNft(index);
     }
 
-    function getAllWs () public view returns (Event[] memory) {
-        Event[] memory events;
-
-        for (uint256 i = 0; i < eventList.length; i++) 
-        {
-            Event storage _event = eventList[i];
-            events.push(Event({
-                name: _event.name,
-                host: _event.host,
-                join_member: _event.join_member,
-                nft_id: _event.nft_id,
-                start_time: _event.start_time,
-                end_time: _event.end_time,
-                isDone: _event.isDone
-            })); 
-        }
-
-        return events;
+   function getAllWs() external view returns (Event[] memory) {
+        return eventList;
     }
    
-    // function getAllNft () external view returns (Pool[] memory) {
-    //     return poolMarketplace;
-    // }
+    function getAllNft() external view returns (Pool[] memory) {
+        return poolMarketplace;
+    }
 
     function mint(uint256 id, uint256 amount, string memory newuri)
         public
