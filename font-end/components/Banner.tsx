@@ -4,12 +4,12 @@ import styled, { keyframes, css } from "styled-components";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { updateNFTs } from "@/script/action/signer/signerAction";
+// import { updateNFTs } from "@/script/action/signer/signerAction";
 import Marquee from "react-fast-marquee";
 
 function Banner() {
    const [nfts, setNFTs] = useState<any[]>([]);
-   const dispatch = useDispatch();
+   // const dispatch = useDispatch();
 
    const nftList = [
       "./images/bannerIMG/angle.png",
@@ -42,48 +42,6 @@ function Banner() {
       },
    ];
 
-   // const fetchNFTs = () => {
-   //    let nftUrl = `https://api.shyft.to/sol/v1/nft/read_all?network=${Network.Devnet}&address=${id}`;
-   //    axios({
-   //       url: nftUrl,
-   //       method: "GET",
-   //       headers: {
-   //          "Content-Type": "application/json",
-   //          "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-   //       },
-   //    })
-   //       .then((res: any) => {
-   //          console.log(res.data.result);
-   //          res.data.result.forEach(async (event: any) => {
-   //             const tx = await axios.get(event.metadata_uri).then((e) => {
-   //                const dataNFT = {
-   //                   addressID: event.mint,
-   //                   name: e.data.name,
-   //                   type: e.data.attributes[0].type,
-   //                   description: e.data.description,
-   //                   img: e.data.image,
-   //                   owner: event.owner,
-   //                   supply: e.data.attributes[0].supply,
-   //                   attributes: e.data.attributes[0],
-   //                };
-   //                nfts.push(dataNFT);
-   //             });
-   //          });
-   //          if (nfts !== undefined) {
-   //             dispatch(updateNFTs(nfts));
-   //          }
-   //          setNFTs([]);
-   //       })
-
-   //       .catch((err: any) => {
-   //          console.warn(err);
-   //       });
-   // };
-
-   // useEffect(() => {
-   //    fetchNFTs();
-   // }, [publicKey]);
-
    return (
       <div
          id="Home"
@@ -96,6 +54,9 @@ function Banner() {
             Explore a wide variety of unique and one-of-a-kind digital assets, verified on
             the blockchain for ownership and scarcity
          </p>
+         <div className="w-full flex justify-center">
+            <img src="./images/Polkadot_Logo.png" className=" w-1/6" alt="" />
+         </div>
          <div className=" flex gap-5 text-xl justify-center items-center ">
             <Link
                href={"/nftCollection"}
@@ -105,6 +66,9 @@ function Banner() {
             </Link>
             <Link href={"/nftCreation"} className=" cursor-pointer">
                Create NFT
+            </Link>
+            <Link href={"/eventCreation"} className=" cursor-pointer">
+               Create Event
             </Link>
          </div>
          <Marquee>
@@ -140,20 +104,6 @@ const Wrapper = styled.div`
    justify-content: center;
    flex-direction: column;
 `;
-//    display: flex;
-//    width: 1200px;
-//    height: 40vh;
-//    overflow: hidden;
-//    user-select: none;
-
-//    mask-image: linear-gradient(
-//       to right,
-//       hsl(0 0% 0% / 0),
-//       hsl(0 0% 0% / 1) 10%,
-//       hsl(0 0% 0% / 1) 90%,
-//       hsl(0 0% 0% / 0)
-//    );
-// `;
 
 const scrollX = keyframes`
   from {
@@ -174,8 +124,6 @@ const common = css`
    height: 100%;
    animation: ${scrollX} 30s linear infinite;
 `;
-//    ${common}
-// `;
 
 const ImageGroup = styled.div`
    display: grid;
