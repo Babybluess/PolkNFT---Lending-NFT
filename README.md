@@ -21,3 +21,8 @@
 - Rent NFT
 - Create Event
 - Join Event
+
+## Technology used
+- Front-end: NextJS, Tailwindcss, wagmi, viem.
+- Back-end: NestJs, PostgreSQL
+- Blockchain: Solidity, Polkadot
